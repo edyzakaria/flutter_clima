@@ -1,3 +1,7 @@
+This project is my udemy-learning project from appbrewery. 
+The purpose of posting here, is so that i can continue the progress of learning from multiple workstation that i have. 
+
+
 ![App Brewery Banner](https://github.com/londonappbrewery/Images/blob/master/AppBreweryBanner.png)
 
 
