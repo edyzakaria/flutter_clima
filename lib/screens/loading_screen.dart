@@ -16,6 +16,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
+    //Calling our own method after the base initState called.
     getLocationData();
   }
 
@@ -26,9 +27,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     //Prepare and get the weather data of the user's location.
     NetworkHelper networkHelper = NetworkHelper('https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=$apiKey');
-
+    //Using var since the return is json with dynamic data.
     var weatherData = await networkHelper.getData();
-
+    //Move to next page.
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return LocationScreen(locationWeather: weatherData);
     }));

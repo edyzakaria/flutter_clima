@@ -13,6 +13,7 @@ class NetworkHelper {
     //Ensuring we get the correct status code.
     if (response.statusCode == 200) {
       String data = response.body;
+      //return with parsing data...
       return jsonDecode(data);
     } else {
       print(response.statusCode);

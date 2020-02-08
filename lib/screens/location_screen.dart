@@ -21,11 +21,17 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   void initState() {
     super.initState();
+    //Calling our custom method at initState.
+    //Passing our local data by using "widget" class.
+    //We access the property of the LocationScreen class using widget object.
     updateUI(widget.locationWeather);
   }
 
   void updateUI(dynamic weatherData) {
     setState(() {
+      if (weatherData == null) {
+
+      }
       double temp = weatherData['main']['temp'];
       temperature = temp.toInt();
       var condition = weatherData['weather'][0]['id'];
