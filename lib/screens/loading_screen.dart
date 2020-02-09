@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:clima/services/location.dart';
-import 'package:clima/services/networking.dart';
 import 'location_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-const apiKey = '6da21a6ad3192dfb6908fd619cd47282';
+import 'package:clima/services/weather.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -21,14 +18,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getLocationData() async {
-    //Prepare and get the location of the user.
-    Location location = Location();
-    await location.getCurrentLocation();
-
-    //Prepare and get the weather data of the user's location.
-    NetworkHelper networkHelper = NetworkHelper('https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=$apiKey');
-    //Using var since the return is json with dynamic data.
-    var weatherData = await networkHelper.getData();
+    //If we don't want instantiate an object, we can directly call its method.
+    var weatherData = await WeatherModel().getLocationWeather();
     //Move to next page.
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return LocationScreen(locationWeather: weatherData);

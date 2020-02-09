@@ -8,7 +8,8 @@ class NetworkHelper {
   final String url;
 
   Future getData() async {
-    http.Response response = await http.get(url);
+    //I add a .timeout function to limit api call.
+    http.Response response = await http.get(url).timeout(Duration(seconds: 3));
 
     //Ensuring we get the correct status code.
     if (response.statusCode == 200) {

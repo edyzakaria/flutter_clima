@@ -7,11 +7,12 @@ class Location {
 
   Future<void> getCurrentLocation() async {
     try {
-      Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
+      //I add a .timeout function to limit api call.
+      Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.low).timeout(Duration(seconds: 3));
       latitude = position.latitude;
       longitude = position.longitude;
     } catch (e) {
-      print(e);
+      print('Exception: $e');
     }
   }
 

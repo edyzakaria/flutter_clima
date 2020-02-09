@@ -24,7 +24,9 @@ class _CityScreenState extends State<CityScreen> {
               Align(
                 alignment: Alignment.topLeft,
                 child: FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: Icon(
                     Icons.arrow_back_ios,
                     size: 50.0,
@@ -33,7 +35,16 @@ class _CityScreenState extends State<CityScreen> {
               ),
               Container(
                 padding: EdgeInsets.all(20.0),
-                child: null,
+                child: TextField(
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                  decoration: kTextFieldInputDecoration,
+                  //save the value through onChanged and pass into it the value we need.
+                  onChanged: (value){
+                    print(value);
+                  },
+                ),
               ),
               FlatButton(
                 onPressed: () {},
